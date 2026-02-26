@@ -1,129 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Training Material</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <style>
-        :root {
-            /* Brand accents */
-            --navy: #0A1A44;
-            --orange: #F7A440;
-            --orange-tint: #F7A44022;
-
-            /* White theme to blend with Zoho CRM */
-            --white: #FFFFFF;
-            --text: #1f2937;
-            --sidebar-link: #0A1A44;       /* dark blue for links */
-            --sidebar-link-hover: #0B5FD9; /* medium blue hover */
-            --page-bg: #F7FAFF;            /* very light blue page bg */
-        }
-
-        * { box-sizing: border-box; }
-        html, body {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: var(--page-bg);
-        }
-
-        /* Layout wrapper (minus header height) */
-        .app {
-            display: flex;
-            min-height: calc(100vh - 60px);
-        }
-
-        /* HEADER (white, with orange accent line) */
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            height: 60px;
-            background: #FFFFFF;     /* white header */
-            color: #0A1A44;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 0 18px;
-            border-bottom: 3px solid var(--orange);
-        }
-        .header img.logo { height: 36px; width: auto; }
-
-        /* SIDEBAR (white, no "Menu" heading) */
-        .sidebar {
-            width: 220px;
-            background-color: var(--white);
-            color: var(--sidebar-link);
-            padding: 16px 20px;
-            flex-shrink: 0;
-            border-right: none;
-        }
-        .nav-link {
-            color: #0A1A44;           /* dark blue for readability on white */
-            text-decoration: none;
-            display: block;
-            padding: 10px 0;
-            font-size: 16px;
-            border-radius: 4px;
-            outline: none;
-        }
-        .nav-link:hover { color: #0B5FD9; }      /* medium blue hover */
-        .nav-link:focus { outline: 2px solid #0B5FD9; outline-offset: 2px; }
-        .nav-link.active { color: #0B5FD9; font-weight: bold; }
-
-        /* CONTENT */
-        .content {
-            flex: 1;
-            padding: 24px 28px;
-            background-color: var(--white);
-        }
-        h1 { color: var(--navy); margin-top: 0; }
-        .placeholder {
-            background-color: var(--orange-tint);
-            border-left: 5px solid var(--orange);
-            padding: 16px 18px;
-            margin: 16px 0;
-            border-radius: 6px;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .app { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                display: flex;
-                gap: 16px;
-                border-right: none;
-                border-bottom: 1px solid #E6EEF8;
-            }
-            .nav-link { display: inline-block; padding: 10px 12px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Training Material — Zoho CRM Help Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-
 <body>
-    <!-- Header (logo only, no title) -->
-    <header class="header" role="banner">
-        <img class="logo" src="assets/logo.png" alt="Company logo" />
-        <!-- Title removed on purpose -->
-    </header>
-
-    <div class="app">
-        <!-- LEFT NAVIGATION (no "Menu" label) -->
-        <nav class="sidebar" aria-label="Main navigation">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link active" href="training.html">Training Material</a>
-        </nav>
-
-        <!-- MAIN CONTENT -->
-        <main class="content">
-            <h1>Training Material</h1>
-            <section class="placeholder">
-                This page will host PDFs and videos. We’ll add folders and a clean listing here later.
-            </section>
-        </main>
+  <!-- Top navigation (logo on the left, menu on top) -->
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <img class="logo" src="assets/logo.png" alt="Company logo" />
     </div>
+
+    <nav class="menu" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="training.html">Training Material</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <main class="container main-offset">
+    <h1>Training Material</h1>
+    <section class="placeholder">
+      This page will host PDFs and videos. We’ll add folders and a clean listing here later.
+    </section>
+  </main>
 </body>
 </html>
