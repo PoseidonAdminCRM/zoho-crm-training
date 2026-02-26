@@ -1,124 +1,80 @@
-/* ================= Global Theme (light with subtle image) ================= */
+/* ================= COLOR SYSTEM ================= */
 :root{
-  --brand-dark: #0A1A44;          /* dark blue text close to CRM */
-  --accent: #F7A440;              /* light orange for hover/active */
-
-  /* How much white veil sits over the image.
-     0.00 = original image, 0.10 = faint veil, 0.20 = subtle, 0.30 = quite pale. */
-  --white-fade-strength: 0.00;
-
-  --topbar-bg: rgba(255,255,255,0.96); /* light sticky top bar */
+  --main-blue: #0A1A44;      /* primary blue */
+  --accent-blue: #1A4F8B;    /* replaces all orange areas */
+  --background: #FFFFFF;     /* pure white */
 }
 
-/* Base reset */
-*{ box-sizing:border-box; }
-html,body{
-  height:100%;
-  margin:0;
+/* ================= GLOBAL RESET ================= */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--brand-dark);
-  background: #ffffff;            /* base page color */
+  background: var(--background);
+  color: var(--main-blue);
 }
 
-/* ===== Background: newbg.png with a very light WHITE overlay =====
-   If you want NO overlay at all, set --white-fade-strength: 0.00.
-*/
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,var(--white-fade-strength)) 0%,
-      rgba(255,255,255,var(--white-fade-strength)) 100%
-    ),
-    url('newbg.png') center/cover no-repeat fixed;
-
-  /* Light polish so the image feels modern but not harsh */
-  filter: brightness(1.08) saturate(0.85) contrast(0.96);
+/* ================= TOP BAR ================= */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--background);
+  border-bottom: 2px solid var(--accent-blue);
 }
 
-/* ================= Top Navigation (menu left, logo right) ================= */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter: blur(6px);
-  background: var(--topbar-bg);
-  border-bottom: 2px solid var(--accent);
-}
-.topbar-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 18px;
+.topbar-inner {
   display: flex;
   align-items: center;
+  padding: 12px 26px;
 }
 
 /* MENU (left) */
-.menu{
-  display:flex;
-  align-items:center;
-  gap:24px;
-  margin-right:auto;                 /* ← pushes brand/logo to the RIGHT */
+.menu {
+  display: flex;
+  gap: 30px;
+  margin-right: auto;
 }
-.nav-link{
-  color: var(--brand-dark);
+
+.nav-link {
   text-decoration: none;
-  font-weight: 700;
-  letter-spacing: .2px;
-  position: relative;
-  padding: 6px 2px;
+  color: var(--main-blue);
+  font-weight: bold;
+  padding-bottom: 4px;
 }
+
 .nav-link:hover,
-.nav-link:focus,
-.nav-link.active{
-  color: var(--accent);               /* light orange on hover/active */
-}
-.nav-link:hover::after,
-.nav-link.active::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-6px;
-  height:2px;
-  background: var(--accent);
+.nav-link.active {
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue);
 }
 
 /* LOGO (right) */
-.brand{
-  margin-left:auto;                   /* keeps the logo on the far right */
-  display:flex;
-  align-items:center;
-}
-.brand .logo{
-  height:34px;
-  width:auto;
+.brand .logo {
+  height: 34px;
+  width: auto;
 }
 
-/* ================= Content ================= */
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:24px 28px;
+/* ================= CONTENT AREA ================= */
+/* REMOVED max-width and centering → moves content LEFT */
+.container {
+  padding: 30px 40px;   /* adjust left padding easily */
 }
 
-h1,h2,h3{ margin-top:0; color: var(--brand-dark); }
+h1, h2, h3 {
+  margin-top: 0;
+  color: var(--main-blue);
+}
 
-/* Light cards so text is readable over the image */
-.announcement-box,
-.placeholder{
-  background: rgba(255,255,255,0.88); /* white “glass” panel */
-  border-left: 4px solid var(--accent);
-  padding: 16px 18px;
+/* ANNOUNCEMENT CARDS */
+.announcement-box, .placeholder {
+  background: #FFFFFF;
+  border-left: 4px solid var(--accent-blue);
+  padding: 18px 20px;
   margin: 16px 0;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-@media (max-width: 720px){
-  .topbar-inner{ flex-wrap:wrap; gap:10px; }
-  .menu{ gap:16px; }
-  .container{ padding:18px; }
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
