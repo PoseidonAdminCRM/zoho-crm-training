@@ -78,7 +78,7 @@ h1, h2, h3 {
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
-.announcement-box2, {
+.announcement-box2 {
   background: #C9EAF2;
   color: #154A57;
   /**border-left: 4px solid var(--accent-blue);**/
