@@ -14,7 +14,6 @@
             --text: #1f2937;
         }
 
-        /* Page reset & base */
         * { box-sizing: border-box; }
         html, body {
             height: 100%;
@@ -24,13 +23,37 @@
             background: #ffffff;
         }
 
-        /* Layout */
+        /* Layout wrapper */
         .app {
             display: flex;
-            min-height: 100vh; /* helps inside Zoho CRM iframe */
+            min-height: 100vh;
         }
 
-        /* Left Navigation Bar */
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            height: 60px;
+            background: var(--navy);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0 18px;
+            border-bottom: 3px solid var(--orange);
+        }
+        .header img.logo {
+            height: 36px;
+            width: auto;
+        }
+        .header-title {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* SIDEBAR */
         .sidebar {
             width: 220px;
             background-color: var(--navy);
@@ -38,14 +61,12 @@
             padding: 20px;
             flex-shrink: 0;
         }
-
         .sidebar h2 {
             color: var(--orange);
             margin: 0 0 12px 0;
             font-size: 18px;
             letter-spacing: 0.3px;
         }
-
         .nav-link {
             color: var(--white);
             text-decoration: none;
@@ -55,71 +76,58 @@
             border-radius: 4px;
             outline: none;
         }
+        .nav-link:hover { color: var(--orange); }
+        .nav-link:focus { outline: 2px solid var(--orange); outline-offset: 2px; }
+        .nav-link.active { color: var(--orange); font-weight: bold; }
 
-        .nav-link:hover {
-            color: var(--orange);
-        }
-
-        .nav-link:focus {
-            outline: 2px solid var(--orange);
-            outline-offset: 2px;
-        }
-
-        .nav-link.active {
-            color: var(--orange);
-            font-weight: bold;
-        }
-
-        /* Main Content Area */
+        /* CONTENT */
         .content {
             flex: 1;
-            padding: 28px;
+            padding: 24px 28px;
         }
-
         h1 {
             color: var(--navy);
             margin-top: 0;
         }
-
         .announcement-box {
-            background-color: var(--orange-tint); /* Light orange tint */
+            background-color: var(--orange-tint);
             border-left: 5px solid var(--orange);
             padding: 16px 18px;
             margin: 16px 0;
             border-radius: 4px;
         }
-
         .announcement-box h3 {
             margin: 0 0 6px 0;
             color: var(--navy);
         }
 
-        /* Small screens: sidebar on top if needed */
-        @media (max-width: 700px) {
-            .app {
-                flex-direction: column;
-            }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .app { flex-direction: column; }
             .sidebar {
                 width: 100%;
                 display: flex;
                 align-items: center;
                 gap: 16px;
             }
-            .nav-link {
-                display: inline-block;
-                padding: 8px 10px;
-            }
+            .nav-link { display: inline-block; padding: 8px 10px; }
         }
     </style>
 </head>
 
 <body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        img class="logo" src="assets/logo.png" alt="Company logo" />
+        <div class="header-title">Zoho CRM Training Portal</div>
+    </header>
+
     <div class="app">
         <!-- LEFT NAVIGATION -->
         <nav class="sidebar" aria-label="Main navigation">
             <h2>Menu</h2>
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="training.html">Training Material</a>
+            index.htmlHome</a>
+            training.htmlTraining Material</a>
         </nav>
 
         <!-- MAIN CONTENT -->
