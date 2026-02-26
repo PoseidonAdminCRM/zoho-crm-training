@@ -1,13 +1,8 @@
-/* ================= Global Theme (light) ================= */
+/* ================= Global Theme (no background fading) ================= */
 :root{
-  --brand-dark: #0A1A44;              /* dark blue text close to CRM */
+  --brand-dark: #0A1A44;              /* dark blue text, close to CRM */
   --accent: #F7A440;                  /* light orange for hover/active */
-
-  /* How strongly to fade the background toward white.
-     Higher = lighter (more white). Try 0.95–0.98. */
-  /*--white-fade-strength: 0.85;*/
-
-  --topbar-bg: rgba(255,255,255,0.96); /* light sticky top bar */
+  --topbar-bg: rgba(255,255,255,0.96);/* light sticky top bar */
 }
 
 /* Base reset */
@@ -20,24 +15,15 @@ html,body{
   background: #ffffff;                /* base page color */
 }
 
-/* ===== Background: newbg.png + strong WHITE overlay (almost white) ===== */
+/* ===== Background: ORIGINAL image, no fading at all ===== */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   z-index:-1;
 
-  /* White veil sitting over the image so it becomes a faint shadow */
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,var(--white-fade-strength)) 0%,
-      rgba(255,255,255,var(--white-fade-strength)) 100%
-    ),
-    url('newbg.png') center/cover no-repeat fixed;
-
-  /* Make the image paler/cleaner below the white veil */
-  filter: brightness(1.28) saturate(0.55) contrast(0.92);
+  /* Only the image—no overlays, no filters */
+  background: url('newbg.png') center/cover no-repeat fixed;
 }
 
 /* ================= Top Navigation (menu left, logo right) ================= */
@@ -88,40 +74,3 @@ body::before{
 
 /* LOGO (right) */
 .brand{
-  margin-left:auto;                   /* keeps the logo on the far right */
-  display:flex;
-  align-items:center;
-}
-.brand .logo{
-  height:34px;
-  width:auto;
-}
-
-/* ================= Content ================= */
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:24px 28px;
-}
-
-h1,h2,h3{
-  color: var(--brand-dark);
-  margin-top:0;
-}
-
-/* Very light cards so everything feels airy on a pale bg */
-.announcement-box,
-.placeholder{
-  background: rgba(255,255,255,0.85);
-  border-left: 4px solid var(--accent);
-  padding: 16px 18px;
-  margin: 16px 0;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-@media (max-width: 720px){
-  .topbar-inner{ flex-wrap:wrap; gap:10px; }
-  .menu{ gap:16px; }
-  .container{ padding:18px; }
-}
