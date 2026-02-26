@@ -1,149 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Zoho CRM Training Portal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <style>
-        :root {
-            --navy: #0A1A44;
-            --orange: #F7A440;
-            --orange-tint: #F7A44022;
-            --white: #FFFFFF;
-            --text: #1f2937;
-        }
-
-        * { box-sizing: border-box; }
-        html, body {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: #ffffff;
-        }
-
-        /* Layout wrapper */
-        .app {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* HEADER */
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            height: 60px;
-            background: #FFFFFF;     /* white header */
-            color: #0A1A44;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 0 18px;
-            border-bottom: 3px solid var(--orange);
-        }
-        .header img.logo {
-            height: 36px;
-            width: auto;
-        }
-        .header-title {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            width: 220px;
-            background-color: #FFFFFF;
-            color: #0A1A44;
-            padding: 16px 20px;
-            flex-shrink: 0;
-            border-right: none;
-        }
-        .sidebar h2 {
-            color: var(--orange);
-            margin: 0 0 12px 0;
-            font-size: 18px;
-            letter-spacing: 0.3px;
-        }
-        .nav-link {
-            color: #0A1A44;           /* dark blue for readability on white */
-            text-decoration: none;
-            display: block;
-            padding: 10px 0;
-            font-size: 16px;
-            border-radius: 4px;
-            outline: none;
-        }
-        .nav-link:hover { color: #0B5FD9; }      /* medium blue hover */
-        .nav-link:focus { outline: 2px solid #0B5FD9; outline-offset: 2px; }
-        .nav-link.active { color: #0B5FD9; font-weight: bold; }
-
-        /* CONTENT */
-        .content {
-            flex: 1;
-            padding: 24px 28px;
-            background-color: #FFFFFF;
-        }
-        h1 {
-            color: var(--navy);
-            margin-top: 0;
-        }
-        .announcement-box {
-            background-color: var(--orange-tint);
-            border-left: 5px solid var(--orange);
-            padding: 16px 18px;
-            margin: 16px 0;
-            border-radius: 4px;
-        }
-        .announcement-box h3 {
-            margin: 0 0 6px 0;
-            color: var(--navy);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .app { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                gap: 16px;
-            }
-            .nav-link { display: inline-block; padding: 8px 10px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Home — Zoho CRM Help Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="header" role="banner">
-            <img class="logo" src="assets/logo.png" alt="Company logo" />
-    </header>
-
-    <div class="app">
-        <!-- LEFT NAVIGATION -->
-        <nav class="sidebar" aria-label="Main navigation">
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="training.html">Training Material</a>
-        </nav>
-
-        <!-- MAIN CONTENT -->
-        <main class="content">
-            <h1>Announcements</h1>
-
-            <section class="announcement-box">
-                <h3>Welcome to the CRM Training Portal!</h3>
-                <p>This is where you will find all updates, announcements, and materials.</p>
-            </section>
-
-            <section class="announcement-box">
-                <h3>New Feature Coming Soon</h3>
-                <p>Stay tuned for new CRM improvements and training resources.</p>
-            </section>
-        </main>
+  <!-- Top navigation (logo on the left, menu on top) -->
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <img class="logo" src="assets/logo.png" alt="Company logo" />
     </div>
+
+    <nav class="menu" aria-label="Main navigation">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="training.html">Training Material</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <main class="container main-offset">
+    <h1>Announcements</h1>
+
+    <section class="announcement-box">
+      <h3>Welcome to the CRM Training Portal!</h3>
+      <p>This is where you will find all updates, announcements, and materials.</p>
+    </section>
+
+    <section class="announcement-box">
+      <h3>New Feature Coming Soon</h3>
+      <p>Stay tuned for new CRM improvements and training resources.</p>
+    </section>
+  </main>
 </body>
 </html>
