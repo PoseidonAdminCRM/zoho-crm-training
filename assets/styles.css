@@ -41,7 +41,7 @@ body::before{
       var(--fade-overlay-middle) 35%,
       var(--fade-overlay-bottom) 100%
     ),
-    url('background.png') center/cover no-repeat fixed;
+    url('newbg.png') center/cover no-repeat fixed;
   /* Slight tuning for a cleaner, modern look */
   filter: saturate(90%) contrast(105%);
 }
