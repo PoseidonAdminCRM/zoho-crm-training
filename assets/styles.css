@@ -1,8 +1,8 @@
 /* ================= COLOR SYSTEM ================= */
 :root{
-  --main-blue: #0A1A44;      /* primary blue */
-  --accent-blue: #1A4F8B;    /* replaces all orange areas */
-  --background: #FFFFFF;     /* pure white */
+  --main-blue: #0A1A44;
+  --accent-blue: #1A4F8B;
+  --background: #FFFFFF;
 }
 
 /* ================= GLOBAL RESET ================= */
@@ -11,79 +11,122 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--background);
+  background: #f5f7fb; /* soft background */
   color: var(--main-blue);
 }
 
-/* ================= TOP BAR ================= */
+/* ================= TOP BAR (TAB STYLE) ================= */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--background);
-  border-bottom: 2px solid var(--accent-blue);
+  background: #f5f7fb;
+  border-bottom: 1px solid #e3e8f3;
 }
 
 .topbar-inner {
   display: flex;
-  align-items: center;
-  padding: 12px 26px;
+  align-items: flex-end;
+  padding: 0 28px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* MENU (left) */
+/* MENU */
 .menu {
   display: flex;
-  gap: 30px;
+  gap: 6px;
   margin-right: auto;
+  padding-top: 18px;
 }
 
+/* Tab buttons */
 .nav-link {
   text-decoration: none;
   color: var(--main-blue);
-  font-weight: bold;
-  padding-bottom: 4px;
+  font-weight: 600;
+  padding: 12px 22px;
+  background: #e9edf7;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.15s ease;
+  font-size: 15px;
 }
 
-.nav-link:hover,
+/* Hover */
+.nav-link:hover {
+  background: #dde4f2;
+}
+
+/* Active tab (Excel-like effect) */
 .nav-link.active {
-  color: var(--accent-blue);
-  border-bottom: 2px solid var(--accent-blue);
+  background: #ffffff;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+  position: relative;
+  top: 1px;
 }
 
-/* LOGO (right) */
+/* LOGO */
 .brand .logo {
   height: 34px;
   width: auto;
+  margin-bottom: 6px;
 }
 
 /* ================= CONTENT AREA ================= */
-/* REMOVED max-width and centering → moves content LEFT */
 .container {
-  padding: 30px 40px;   /* adjust left padding easily */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 60px 20px;
 }
 
 h1, h2, h3 {
   margin-top: 0;
-  color: var(--main-blue);
 }
 
-/* ANNOUNCEMENT CARDS */
-.announcement-box, .placeholder {
-  background: #DFE4F2;
-  border-left: 4px solid var(--accent-blue);
-  padding: 18px 20px;
-  margin: 16px 0;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+h2 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-size: 22px;
 }
+
+/* ================= INTRO INFO BOX ================= */
 .announcement-box2 {
-  background: #C9EAF2;
-  color: #154A57;
-  /**border-left: 4px solid var(--accent-blue);**/
-  padding: 18px 20px;
-  margin: 16px 0;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  background: #E6F3F7;
+  padding: 22px 24px;
+  margin: 20px 0 40px 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+/* ================= ANNOUNCEMENT CARDS ================= */
+.announcement-box {
+  background: #ffffff;
+  border-left: 5px solid var(--accent-blue);
+  padding: 22px 24px;
+  margin: 18px 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.announcement-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* Announcement date */
+.announcement-date {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+/* Learning Library Placeholder */
+.placeholder {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
 }
