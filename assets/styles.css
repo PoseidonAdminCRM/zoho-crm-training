@@ -74,3 +74,41 @@ body::before{
 
 /* LOGO (right) */
 .brand{
+  margin-left:auto;                   /* keeps the logo on the far right */
+  display:flex;
+  align-items:center;
+}
+.brand .logo{
+  height:34px;
+  width:auto;
+}
+
+/* ================= Content ================= */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:24px 28px;
+}
+
+h1,h2,h3{
+  color: var(--brand-dark);
+  margin-top:0;
+}
+
+/* Light cards to ensure readability over a busy image */
+.announcement-box,
+.placeholder{
+  background: rgba(255,255,255,0.88); /* light “glass” panel */
+  border-left: 4px solid var(--accent);
+  padding: 16px 18px;
+  margin: 16px 0;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 720px){
+  .topbar-inner{ flex-wrap:wrap; gap:10px; }
+  .menu{ gap:16px; }
+  .container{ padding:18px; }
+}
+``
