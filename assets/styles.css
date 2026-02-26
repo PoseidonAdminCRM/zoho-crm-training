@@ -1,9 +1,14 @@
-/* ======= Global Theme ======= */
+/* ================= Global Theme ================= */
 :root{
-  --accent: #F7A440;            /* light orange for hover/active */
-  --text: #FFFFFF;              /* all letters white */
-  --overlay: rgba(10, 26, 68, 0.85); /* strong navy overlay to dim the image */
-  --topbar-bg: rgba(6, 14, 35, 0.55);/* translucent top bar */
+  --accent: #F7A440;                 /* light orange for hover/active */
+  --text: #FFFFFF;                   /* all letters white */
+  /* Make the background look like a soft shadow over the image.
+     Increase the alphas (.90 → .95) if you want the image even fainter. */
+  --fade-overlay-top:    rgba(6, 14, 35, 0.95);
+  --fade-overlay-middle: rgba(6, 14, 35, 0.92);
+  --fade-overlay-bottom: rgba(6, 14, 35, 0.90);
+
+  --topbar-bg: rgba(6, 14, 35, 0.55); /* translucent top bar with blur */
 }
 
 /* Base reset */
@@ -15,8 +20,11 @@ html,body{
   color:var(--text);
 }
 
-/* ---------- Background image with overlay (faint, shadow-like) ---------- */
-/* Use a fixed pseudo-element so the overlay doesn't affect content opacity */
+/* ===== Background image with gradient fade overlay (very subtle) =====
+   We draw a full-screen fixed layer behind everything:
+   1) a dark blue gradient (fade) to make text readable
+   2) the background image itself
+*/
 body{
   background-color:#0A1A44; /* fallback while image loads */
 }
@@ -26,13 +34,19 @@ body::before{
   inset:0;
   z-index:-1;
   background:
-    linear-gradient(var(--overlay), var(--overlay)),
+    /* gradient overlay that fades slightly top→bottom */
+    linear-gradient(
+      to bottom,
+      var(--fade-overlay-top) 0%,
+      var(--fade-overlay-middle) 35%,
+      var(--fade-overlay-bottom) 100%
+    ),
     url('background.png') center/cover no-repeat fixed;
-  /* Optional subtle touch for a futuristic feel */
-  filter:saturate(90%) contrast(105%);
+  /* Slight tuning for a cleaner, modern look */
+  filter: saturate(90%) contrast(105%);
 }
 
-/* ---------- Top navigation ---------- */
+/* ================= Top Navigation ================= */
 .topbar{
   position:sticky;
   top:0;
@@ -47,14 +61,14 @@ body::before{
   padding:10px 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between; /* menu left, logo right */
 }
 
-/* Left side: horizontal menu */
+/* Menu (LEFT) */
 .menu{
   display:flex;
   align-items:center;
   gap:24px;
+  margin-right:auto; /* pushes the logo to the RIGHT */
 }
 .nav-link{
   color:var(--text);
@@ -78,34 +92,34 @@ body::before{
   background:var(--accent);
 }
 
-/* Right side: logo */
+/* Logo (RIGHT) */
 .brand{
+  margin-left:auto;                 /* ensures it stays on the right */
   display:flex;
   align-items:center;
-  gap:10px;
 }
 .brand .logo{
   height:34px;
   width:auto;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); /* subtle glow/futuristic */
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); /* subtle futuristic glow */
 }
 
-/* ---------- Content ---------- */
+/* ================= Content ================= */
 .container{
   max-width:1200px;
   margin:0 auto;
   padding:24px 28px;
 }
-h1,h2,h3{ 
+h1,h2,h3{
   color:var(--text);
   text-shadow: 0 1px 2px rgba(0,0,0,.35);
   margin-top:0;
 }
 
-/* Futuristic card panels (readable over image) */
+/* Readable translucent panels on top of the dimmed image */
 .announcement-box,
 .placeholder{
-  background: rgba(6, 14, 35, 0.45);      /* translucent dark panel */
+  background: rgba(6, 14, 35, 0.42); /* darker glass so text pops */
   border-left: 4px solid var(--accent);
   padding:16px 18px;
   margin:16px 0;
@@ -115,7 +129,7 @@ h1,h2,h3{
 
 /* Small screens */
 @media (max-width: 720px){
-  .topbar-inner{ flex-direction:column; gap:10px; }
-  .menu{ gap:16px; flex-wrap:wrap; }
+  .topbar-inner{ flex-wrap:wrap; gap:10px; }
+  .menu{ gap:16px; }
   .container{ padding:18px; }
 }
