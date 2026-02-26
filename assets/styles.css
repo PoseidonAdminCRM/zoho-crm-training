@@ -5,7 +5,7 @@
 
   /* How much white veil sits over the image.
      0.00 = original image, 0.10 = faint veil, 0.20 = subtle, 0.30 = quite pale. */
-  --white-fade-strength: 0.18;
+  --white-fade-strength: 0.00;
 
   --topbar-bg: rgba(255,255,255,0.96); /* light sticky top bar */
 }
