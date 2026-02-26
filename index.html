@@ -69,7 +69,7 @@
             letter-spacing: 0.3px;
         }
         .nav-link {
-            color: var(--white);
+            color: #0A1A44;           /* dark blue for readability on white */
             text-decoration: none;
             display: block;
             padding: 10px 0;
@@ -77,9 +77,9 @@
             border-radius: 4px;
             outline: none;
         }
-        .nav-link:hover { color: var(--orange); }
-        .nav-link:focus { outline: 2px solid var(--orange); outline-offset: 2px; }
-        .nav-link.active { color: var(--orange); font-weight: bold; }
+        .nav-link:hover { color: #0B5FD9; }      /* medium blue hover */
+        .nav-link:focus { outline: 2px solid #0B5FD9; outline-offset: 2px; }
+        .nav-link.active { color: #0B5FD9; font-weight: bold; }
 
         /* CONTENT */
         .content {
@@ -126,7 +126,6 @@
     <div class="app">
         <!-- LEFT NAVIGATION -->
         <nav class="sidebar" aria-label="Main navigation">
-            <h2>Menu</h2>
             <a class="nav-link active" href="index.html">Home</a>
             <a class="nav-link" href="training.html">Training Material</a>
         </nav>
