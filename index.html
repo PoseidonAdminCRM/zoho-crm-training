@@ -1,2 +1,86 @@
-<h1>Zoho CRM Training Portal</h1>
-<p>This is a placeholder page.</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Zoho CRM Training Portal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        /* Left Navigation Bar */
+        .sidebar {
+            width: 220px;
+            background-color: #0A1A44; /* Navy Blue */
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            color: #F7A440; /* Light Orange */
+            margin-top: 0;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+        .nav-link:hover {
+            color: #F7A440;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .announcement-box {
+            background-color: #F7A44022; /* Light orange tint */
+            border-left: 5px solid #F7A440;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #0A1A44; /* Navy */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LEFT NAVIGATION -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="training.html">Training Material</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <h1>Announcements</h1>
+
+        <div class="announcement-box">
+            <h3>Welcome to the CRM Training Portal!</h3>
+            <p>This is where you will find all updates, announcements, and materials.</p>
+        </div>
+
+        <div class="announcement-box">
+            <h3>New Feature Coming Soon</h3>
+            <p>Stay tuned for new CRM improvements and training resources.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
