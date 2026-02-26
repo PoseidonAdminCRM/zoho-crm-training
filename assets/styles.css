@@ -1,8 +1,13 @@
-/* ================= Global Theme (no background fading) ================= */
+/* ================= Global Theme (light with subtle image) ================= */
 :root{
-  --brand-dark: #0A1A44;              /* dark blue text, close to CRM */
-  --accent: #F7A440;                  /* light orange for hover/active */
-  --topbar-bg: rgba(255,255,255,0.96);/* light sticky top bar */
+  --brand-dark: #0A1A44;          /* dark blue text close to CRM */
+  --accent: #F7A440;              /* light orange for hover/active */
+
+  /* How much white veil sits over the image.
+     0.00 = original image, 0.10 = faint veil, 0.20 = subtle, 0.30 = quite pale. */
+  --white-fade-strength: 0.18;
+
+  --topbar-bg: rgba(255,255,255,0.96); /* light sticky top bar */
 }
 
 /* Base reset */
@@ -12,18 +17,27 @@ html,body{
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--brand-dark);
-  background: #ffffff;                /* base page color */
+  background: #ffffff;            /* base page color */
 }
 
-/* ===== Background: ORIGINAL image, no fading at all ===== */
+/* ===== Background: newbg.png with a very light WHITE overlay =====
+   If you want NO overlay at all, set --white-fade-strength: 0.00.
+*/
 body::before{
   content:"";
   position:fixed;
   inset:0;
   z-index:-1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,var(--white-fade-strength)) 0%,
+      rgba(255,255,255,var(--white-fade-strength)) 100%
+    ),
+    url('newbg.png') center/cover no-repeat fixed;
 
-  /* Only the image—no overlays, no filters */
-  background: url('newbg.png') center/cover no-repeat fixed;
+  /* Light polish so the image feels modern but not harsh */
+  filter: brightness(1.08) saturate(0.85) contrast(0.96);
 }
 
 /* ================= Top Navigation (menu left, logo right) ================= */
@@ -48,7 +62,7 @@ body::before{
   display:flex;
   align-items:center;
   gap:24px;
-  margin-right:auto; /* pushes brand/logo to the RIGHT */
+  margin-right:auto;                 /* ← pushes brand/logo to the RIGHT */
 }
 .nav-link{
   color: var(--brand-dark);
@@ -90,15 +104,12 @@ body::before{
   padding:24px 28px;
 }
 
-h1,h2,h3{
-  color: var(--brand-dark);
-  margin-top:0;
-}
+h1,h2,h3{ margin-top:0; color: var(--brand-dark); }
 
-/* Light cards to ensure readability over a busy image */
+/* Light cards so text is readable over the image */
 .announcement-box,
 .placeholder{
-  background: rgba(255,255,255,0.88); /* light “glass” panel */
+  background: rgba(255,255,255,0.88); /* white “glass” panel */
   border-left: 4px solid var(--accent);
   padding: 16px 18px;
   margin: 16px 0;
@@ -111,4 +122,3 @@ h1,h2,h3{
   .menu{ gap:16px; }
   .container{ padding:18px; }
 }
-``
