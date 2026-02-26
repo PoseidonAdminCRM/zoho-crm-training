@@ -78,3 +78,11 @@ h1, h2, h3 {
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
+.announcement-box2, {
+  background: #C9EAF2;
+  /**border-left: 4px solid var(--accent-blue);**/
+  padding: 18px 20px;
+  margin: 16px 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
