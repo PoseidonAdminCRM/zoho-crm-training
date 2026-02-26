@@ -1,0 +1,122 @@
+/* ========== Global Theme (shared) ========== */
+:root {
+  --accent: #F7A440;          /* light orange for hover/active */
+  --text-on-bg: #FFFFFF;      /* all letters white as requested */
+  --fallback-navy: #0A1A44;   /* seen while the image loads */
+}
+
+/* Base reset */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-on-bg);
+}
+
+/* Full-page background image */
+body {
+  /* Fallback navy while image loads */
+  background-color: var(--fallback-navy);
+
+  /* Background image (relative to this CSS file in /assets) */
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax feel, also helps in long pages */
+}
+
+/* Layout container for page content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 28px;
+}
+
+/* Headings and paragraphs are all white by default */
+h1, h2, h3, h4, h5, h6, p, li, a, span, div, section {
+  color: var(--text-on-bg);
+}
+
+/* Cards (announcements, placeholders) */
+.announcement-box,
+.placeholder {
+  background: rgba(255, 255, 255, 0.08); /* subtle translucent panel */
+  border-left: 4px solid var(--accent);
+  padding: 16px 18px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+/* ========== Top Navigation ========== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+
+  /* Slight translucent bar so text is readable on any background */
+  background: rgba(6, 14, 35, 0.55);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 18px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand .logo {
+  height: 36px;
+  width: auto;
+}
+
+/* Horizontal menu on the top */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: 10px; /* space after logo */
+}
+
+.nav-link {
+  color: var(--text-on-bg);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 6px 2px;
+  border-radius: 4px;
+}
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  color: var(--accent); /* light orange on hover/active */
+  outline: none;
+}
+
+/* Make sure main content never hides under the sticky bar */
+.main-offset {
+  padding-top: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 720px) {
+  .topbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 12px;
+    gap: 12px;
+  }
+  .menu {
+    gap: 16px;
+    margin-left: 0;
+    flex-wrap: wrap;
+  }
+  .container { padding: 18px; }
+}
