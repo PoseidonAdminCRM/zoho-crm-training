@@ -80,6 +80,7 @@ h1, h2, h3 {
 }
 .announcement-box2, {
   background: #C9EAF2;
+  color: #154A57;
   /**border-left: 4px solid var(--accent-blue);**/
   padding: 18px 20px;
   margin: 16px 0;
