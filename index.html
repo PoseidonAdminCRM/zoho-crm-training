@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <!-- Top navigation (logo on the left, menu on top) -->
+  <!-- Top bar: menu left, logo right -->
   <header class="topbar" role="banner">
-    <div class="brand">
-      <img class="logo" src="assets/logo.png" alt="Company logo" />
+    <div class="topbar-inner">
+      <nav class="menu" aria-label="Main navigation">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="training.html">Training Material</a>
+      </nav>
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" alt="Company logo">
+      </div>
     </div>
-
-    <nav class="menu" aria-label="Main navigation">
-      <a class="nav-link active" href="index.html">Home</a>
-      <a class="nav-link" href="training.html">Training Material</a>
-    </nav>
   </header>
 
-  <!-- Content -->
-  <main class="container main-offset">
+  <main class="container">
     <h1>Announcements</h1>
 
     <section class="announcement-box">
