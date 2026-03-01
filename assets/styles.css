@@ -1,10 +1,8 @@
-/* ================= COLOR SYSTEM ================= */
 :root{
   --main-blue: #0A1A44;
   --accent-blue: #1A4F8B;
 }
 
-/* ================= GLOBAL RESET ================= */
 * { box-sizing: border-box; }
 
 html, body {
@@ -50,9 +48,7 @@ html, body {
   font-size: 15px;
 }
 
-.nav-link:hover {
-  background: #dde4f2;
-}
+.nav-link:hover { background: #dde4f2; }
 
 .nav-link.active {
   background: #ffffff;
@@ -74,24 +70,23 @@ html, body {
 }
 
 h2 {
-  margin-top: 40px;
+  margin-top: 0;
   margin-bottom: 16px;
 }
 
-/* ================= INTRO BOX ================= */
-.announcement-box2 {
-  background: #E6F3F7;
-  padding: 22px 24px;
-  margin: 20px 0 34px 0;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+/* ================= LINKS ================= */
+a.inline-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 600;
 }
+a.inline-link:hover { text-decoration: underline; }
 
 /* ================= TIMELINE ================= */
 .timeline {
   position: relative;
   margin-top: 10px;
-  padding-left: 18px; /* reduced because dots are removed */
+  padding-left: 18px;
 }
 
 .timeline::before {
@@ -109,8 +104,6 @@ h2 {
   position: relative;
   margin-bottom: 18px;
 }
-
-/* NOTE: dots removed intentionally (no timeline-item::before) */
 
 /* ================= TIMELINE CARD ================= */
 .timeline-card {
@@ -143,7 +136,6 @@ h2 {
 .timeline-summary::-webkit-details-marker { display: none; }
 .timeline-summary::marker { content: ""; }
 
-/* chevron on the right */
 .timeline-summary::after {
   content: "⌄";
   float: right;
@@ -162,7 +154,7 @@ h2 {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  padding-right: 28px; /* room for chevron */
+  padding-right: 28px;
 }
 
 .timeline-title {
@@ -215,32 +207,74 @@ h2 {
   line-height: 1.45;
 }
 
-.timeline-body p {
-  margin: 0 0 10px 0;
-}
-
-.timeline-body p:last-child {
-  margin-bottom: 0;
-}
+.timeline-body p { margin: 0 0 10px 0; }
+.timeline-body p:last-child { margin-bottom: 0; }
 
 .timeline-body ul {
   margin: 0 0 10px 18px;
   padding: 0;
 }
+.timeline-body li { margin: 6px 0; }
 
-.timeline-body li {
-  margin: 6px 0;
+/* ================= LEARNING LIBRARY "FOLDERS" ================= */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 16px;
 }
 
-/* ================= Learning Library Placeholder ================= */
-.placeholder {
+.folder {
   background: #ffffff;
-  padding: 24px;
   border-radius: 14px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  padding: 18px 18px 16px 18px;
+  border: 1px solid #eef2f7;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.folder:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.folder::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  width: 64px;
+  height: 14px;
+  background: #e9edf7;
+  border-radius: 10px 10px 4px 4px;
+}
+
+.folder-title {
+  margin: 18px 0 6px 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.folder-desc {
+  margin: 0 0 12px 0;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.folder-meta {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.anchor-offset {
+  scroll-margin-top: 90px; /* so anchor doesn't hide behind sticky header */
 }
 
 /* Small screens */
+@media (max-width: 760px) {
+  .library-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 520px) {
   .topbar-inner { padding: 0 16px; }
   .nav-link { padding: 10px 14px; font-size: 14px; }
