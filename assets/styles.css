@@ -2,7 +2,6 @@
 :root{
   --main-blue: #0A1A44;
   --accent-blue: #1A4F8B;
-  --background: #FFFFFF;
 }
 
 /* ================= GLOBAL RESET ================= */
@@ -16,7 +15,7 @@ html, body {
   color: var(--main-blue);
 }
 
-/* ================= TOP BAR (TAB STYLE) ================= */
+/* ================= TOP BAR ================= */
 .topbar {
   position: sticky;
   top: 0;
@@ -33,7 +32,6 @@ html, body {
   margin: 0 auto;
 }
 
-/* MENU */
 .menu {
   display: flex;
   gap: 6px;
@@ -41,7 +39,6 @@ html, body {
   padding-top: 18px;
 }
 
-/* Tab buttons */
 .nav-link {
   text-decoration: none;
   color: var(--main-blue);
@@ -64,31 +61,24 @@ html, body {
   top: 1px;
 }
 
-/* LOGO */
 .brand .logo {
   height: 34px;
-  width: auto;
   margin-bottom: 6px;
 }
 
-/* ================= CONTENT AREA ================= */
+/* ================= CONTENT ================= */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px 60px 20px;
 }
 
-h1, h2, h3 {
-  margin-top: 0;
-}
-
 h2 {
   margin-top: 40px;
   margin-bottom: 16px;
-  font-size: 22px;
 }
 
-/* ================= INTRO INFO BOX ================= */
+/* ================= INTRO BOX ================= */
 .announcement-box2 {
   background: #E6F3F7;
   padding: 22px 24px;
@@ -104,7 +94,6 @@ h2 {
   padding-left: 34px;
 }
 
-/* vertical line */
 .timeline::before {
   content: "";
   position: absolute;
@@ -113,15 +102,13 @@ h2 {
   left: 14px;
   width: 2px;
   background: #d8e0f1;
-  border-radius: 2px;
 }
 
 .timeline-item {
   position: relative;
-  margin: 0 0 18px 0;
+  margin-bottom: 18px;
 }
 
-/* dot */
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -132,16 +119,16 @@ h2 {
   background: #ffffff;
   border: 3px solid var(--accent-blue);
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* timeline card */
+/* ================= TIMELINE CARD ================= */
 .timeline-card {
   background: #ffffff;
   border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
   padding: 14px 16px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  border-left: 5px solid transparent;
+  transition: all 0.15s ease;
 }
 
 .timeline-card:hover {
@@ -149,107 +136,87 @@ h2 {
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* ================= COLLAPSIBLE (details/summary) ================= */
-.timeline-details {
-  margin: 0;
+/* Left border colors */
+.card-feature {
+  border-left-color: #1A4F8B;
 }
 
-/* IMPORTANT: remove ALL default disclosure markers (triangles) */
+.card-process {
+  border-left-color: #1F7A52;
+}
+
+.card-training {
+  border-left-color: #6B3FA0;
+}
+
+/* ================= COLLAPSIBLE ================= */
 .timeline-summary {
   cursor: pointer;
-  padding: 4px 2px;
-  outline: none;
   list-style: none;
+  padding: 4px 2px;
   display: block;
 }
 
-.timeline-summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
-.timeline-summary::marker { content: ""; }                  /* Firefox/modern */
-.timeline-summary { list-style-type: none; }                /* fallback */
+.timeline-summary::-webkit-details-marker { display: none; }
+.timeline-summary::marker { content: ""; }
 
-/* Put our own chevron on the right */
 .timeline-summary::after {
   content: "⌄";
   float: right;
   color: #64748b;
   font-size: 16px;
-  line-height: 1;
   margin-top: 4px;
   transition: transform 0.15s ease;
 }
 
-/* rotate chevron when open */
 .timeline-details[open] .timeline-summary::after {
   transform: rotate(180deg);
 }
 
-/* summary layout */
 .timeline-left {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  padding-right: 28px; /* leaves room so title never collides with chevron */
+  padding-right: 28px;
 }
 
-/* date pill */
-.timeline-date {
-  display: inline-block;
-  font-size: 12px;
-  color: #0A1A44;
-  background: #eef3ff;
-  border: 1px solid #d9e3ff;
-  padding: 6px 10px;
-  border-radius: 999px;
-}
-
-/* tag pill */
-.tag {
-  display: inline-block;
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #e2e8f0;
-}
-
-/* title */
 .timeline-title {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
-  color: var(--main-blue);
 }
 
-/* expanded body */
+/* ================= TAG COLORS ================= */
+.tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.tag-feature {
+  background: #E8F0FF;
+  border-color: #C7D8FF;
+  color: #1A4F8B;
+}
+
+.tag-process {
+  background: #E6F7EF;
+  border-color: #C2EAD6;
+  color: #1F7A52;
+}
+
+.tag-training {
+  background: #F2E9FF;
+  border-color: #E0CFFF;
+  color: #6B3FA0;
+}
+
+/* ================= BODY ================= */
 .timeline-body {
   padding: 12px 2px 4px 2px;
   border-top: 1px solid #eef2f7;
   margin-top: 10px;
-  color: #21335a;
   line-height: 1.45;
-}
-
-.timeline-body p {
-  margin: 0 0 10px 0;
-}
-
-.timeline-body p:last-child {
-  margin-bottom: 0;
-}
-
-/* Learning Library Placeholder */
-.placeholder {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-}
-
-/* Small screens */
-@media (max-width: 520px) {
-  .topbar-inner { padding: 0 16px; }
-  .nav-link { padding: 10px 14px; font-size: 14px; }
-  .container { padding: 28px 14px 50px 14px; }
 }
