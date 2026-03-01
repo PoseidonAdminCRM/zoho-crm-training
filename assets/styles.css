@@ -91,7 +91,7 @@ h2 {
 .timeline {
   position: relative;
   margin-top: 10px;
-  padding-left: 34px;
+  padding-left: 18px; /* reduced because dots are removed */
 }
 
 .timeline::before {
@@ -99,9 +99,10 @@ h2 {
   position: absolute;
   top: 6px;
   bottom: 6px;
-  left: 14px;
+  left: 6px;
   width: 2px;
   background: #d8e0f1;
+  border-radius: 2px;
 }
 
 .timeline-item {
@@ -109,17 +110,7 @@ h2 {
   margin-bottom: 18px;
 }
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 20px;
-  width: 16px;
-  height: 16px;
-  background: #ffffff;
-  border: 3px solid var(--accent-blue);
-  border-radius: 50%;
-}
+/* NOTE: dots removed intentionally (no timeline-item::before) */
 
 /* ================= TIMELINE CARD ================= */
 .timeline-card {
@@ -136,18 +127,10 @@ h2 {
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* Left border colors */
-.card-feature {
-  border-left-color: #1A4F8B;
-}
-
-.card-process {
-  border-left-color: #1F7A52;
-}
-
-.card-training {
-  border-left-color: #6B3FA0;
-}
+/* Left border colors to match tags */
+.card-feature  { border-left-color: #1A4F8B; }
+.card-process  { border-left-color: #1F7A52; }
+.card-training { border-left-color: #6B3FA0; }
 
 /* ================= COLLAPSIBLE ================= */
 .timeline-summary {
@@ -160,6 +143,7 @@ h2 {
 .timeline-summary::-webkit-details-marker { display: none; }
 .timeline-summary::marker { content: ""; }
 
+/* chevron on the right */
 .timeline-summary::after {
   content: "⌄";
   float: right;
@@ -178,13 +162,23 @@ h2 {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  padding-right: 28px;
+  padding-right: 28px; /* room for chevron */
 }
 
 .timeline-title {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
+}
+
+/* ================= DATE PILL ================= */
+.timeline-date {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
 }
 
 /* ================= TAG COLORS ================= */
@@ -219,4 +213,36 @@ h2 {
   border-top: 1px solid #eef2f7;
   margin-top: 10px;
   line-height: 1.45;
+}
+
+.timeline-body p {
+  margin: 0 0 10px 0;
+}
+
+.timeline-body p:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-body ul {
+  margin: 0 0 10px 18px;
+  padding: 0;
+}
+
+.timeline-body li {
+  margin: 6px 0;
+}
+
+/* ================= Learning Library Placeholder ================= */
+.placeholder {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+  .topbar-inner { padding: 0 16px; }
+  .nav-link { padding: 10px 14px; font-size: 14px; }
+  .container { padding: 28px 14px 50px 14px; }
 }
