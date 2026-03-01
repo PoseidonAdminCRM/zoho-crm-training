@@ -12,7 +12,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fb; /* soft background */
+  background: #f5f7fb;
   color: var(--main-blue);
 }
 
@@ -53,12 +53,10 @@ html, body {
   font-size: 15px;
 }
 
-/* Hover */
 .nav-link:hover {
   background: #dde4f2;
 }
 
-/* Active tab (Excel-like effect) */
 .nav-link.active {
   background: #ffffff;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
@@ -103,7 +101,7 @@ h2 {
 .timeline {
   position: relative;
   margin-top: 10px;
-  padding-left: 34px; /* space for line & dots */
+  padding-left: 34px;
 }
 
 /* vertical line */
@@ -151,36 +149,47 @@ h2 {
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* Collapsible (details/summary) */
+/* ================= COLLAPSIBLE (details/summary) ================= */
 .timeline-details {
   margin: 0;
 }
 
+/* IMPORTANT: remove ALL default disclosure markers (triangles) */
 .timeline-summary {
-  list-style: none; /* removes default marker in Firefox */
   cursor: pointer;
   padding: 4px 2px;
   outline: none;
+  list-style: none;
+  display: block;
 }
 
-/* removes the default triangle marker (Chrome/Safari) */
-.timeline-summary::-webkit-details-marker {
-  display: none;
+.timeline-summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
+.timeline-summary::marker { content: ""; }                  /* Firefox/modern */
+.timeline-summary { list-style-type: none; }                /* fallback */
+
+/* Put our own chevron on the right */
+.timeline-summary::after {
+  content: "⌄";
+  float: right;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1;
+  margin-top: 4px;
+  transition: transform 0.15s ease;
 }
 
-/* custom summary layout */
-.timeline-summary-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
+/* rotate chevron when open */
+.timeline-details[open] .timeline-summary::after {
+  transform: rotate(180deg);
 }
 
+/* summary layout */
 .timeline-left {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  padding-right: 28px; /* leaves room so title never collides with chevron */
 }
 
 /* date pill */
@@ -213,19 +222,6 @@ h2 {
   color: var(--main-blue);
 }
 
-/* chevron indicator */
-.timeline-chevron {
-  font-size: 16px;
-  color: #64748b;
-  transition: transform 0.15s ease;
-  user-select: none;
-}
-
-/* rotate chevron when open */
-.timeline-details[open] .timeline-chevron {
-  transform: rotate(180deg);
-}
-
 /* expanded body */
 .timeline-body {
   padding: 12px 2px 4px 2px;
@@ -256,5 +252,4 @@ h2 {
   .topbar-inner { padding: 0 16px; }
   .nav-link { padding: 10px 14px; font-size: 14px; }
   .container { padding: 28px 14px 50px 14px; }
-  .timeline-summary-row { align-items: flex-start; }
 }
