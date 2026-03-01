@@ -128,7 +128,7 @@ h2 {
   content: "";
   position: absolute;
   left: 7px;
-  top: 22px;
+  top: 20px;
   width: 16px;
   height: 16px;
   background: #ffffff;
@@ -137,18 +137,50 @@ h2 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* timeline card (replaces announcement-box) */
+/* timeline card */
 .timeline-card {
   background: #ffffff;
   border-radius: 14px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  padding: 18px 20px;
+  padding: 14px 16px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .timeline-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* Collapsible (details/summary) */
+.timeline-details {
+  margin: 0;
+}
+
+.timeline-summary {
+  list-style: none; /* removes default marker in Firefox */
+  cursor: pointer;
+  padding: 4px 2px;
+  outline: none;
+}
+
+/* removes the default triangle marker (Chrome/Safari) */
+.timeline-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* custom summary layout */
+.timeline-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.timeline-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* date pill */
@@ -160,30 +192,55 @@ h2 {
   border: 1px solid #d9e3ff;
   padding: 6px 10px;
   border-radius: 999px;
-  margin-bottom: 10px;
 }
 
+/* tag pill */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+/* title */
 .timeline-title {
-  margin: 0 0 6px 0;
-  font-size: 17px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--main-blue);
 }
 
-.timeline-text {
-  margin: 0;
+/* chevron indicator */
+.timeline-chevron {
+  font-size: 16px;
+  color: #64748b;
+  transition: transform 0.15s ease;
+  user-select: none;
+}
+
+/* rotate chevron when open */
+.timeline-details[open] .timeline-chevron {
+  transform: rotate(180deg);
+}
+
+/* expanded body */
+.timeline-body {
+  padding: 12px 2px 4px 2px;
+  border-top: 1px solid #eef2f7;
+  margin-top: 10px;
   color: #21335a;
   line-height: 1.45;
 }
 
-/* optional tag pills (if you want) */
-.tag {
-  display: inline-block;
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-left: 8px;
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #e2e8f0;
+.timeline-body p {
+  margin: 0 0 10px 0;
+}
+
+.timeline-body p:last-child {
+  margin-bottom: 0;
 }
 
 /* Learning Library Placeholder */
@@ -199,4 +256,5 @@ h2 {
   .topbar-inner { padding: 0 16px; }
   .nav-link { padding: 10px 14px; font-size: 14px; }
   .container { padding: 28px 14px 50px 14px; }
+  .timeline-summary-row { align-items: flex-start; }
 }
