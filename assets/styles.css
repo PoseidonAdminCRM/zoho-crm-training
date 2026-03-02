@@ -69,168 +69,20 @@ html, body {
   padding: 40px 20px 60px 20px;
 }
 
-h2 {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-/* ================= LINKS ================= */
-a.inline-link {
-  color: var(--accent-blue);
-  text-decoration: none;
-  font-weight: 600;
-}
-a.inline-link:hover { text-decoration: underline; }
-
-/* ================= TIMELINE ================= */
-.timeline {
-  position: relative;
-  margin-top: 10px;
-  padding-left: 18px;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 6px;
-  width: 2px;
-  background: #d8e0f1;
-  border-radius: 2px;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 18px;
-}
-
-/* ================= TIMELINE CARD ================= */
-.timeline-card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 14px 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  border-left: 5px solid transparent;
-  transition: all 0.15s ease;
-}
-
-.timeline-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
-
-/* Left border colors to match tags */
-.card-feature  { border-left-color: #1A4F8B; }
-.card-process  { border-left-color: #1F7A52; }
-.card-training { border-left-color: #6B3FA0; }
-
-/* ================= COLLAPSIBLE ================= */
-.timeline-summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 4px 2px;
-  display: block;
-}
-
-.timeline-summary::-webkit-details-marker { display: none; }
-.timeline-summary::marker { content: ""; }
-
-.timeline-summary::after {
-  content: "⌄";
-  float: right;
-  color: #64748b;
-  font-size: 16px;
-  margin-top: 4px;
-  transition: transform 0.15s ease;
-}
-
-.timeline-details[open] .timeline-summary::after {
-  transform: rotate(180deg);
-}
-
-.timeline-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-right: 28px;
-}
-
-.timeline-title {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-/* ================= DATE PILL ================= */
-.timeline-date {
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #334155;
-}
-
-/* ================= TAG COLORS ================= */
-.tag {
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid;
-}
-
-.tag-feature {
-  background: #E8F0FF;
-  border-color: #C7D8FF;
-  color: #1A4F8B;
-}
-
-.tag-process {
-  background: #E6F7EF;
-  border-color: #C2EAD6;
-  color: #1F7A52;
-}
-
-.tag-training {
-  background: #F2E9FF;
-  border-color: #E0CFFF;
-  color: #6B3FA0;
-}
-
-/* ================= BODY ================= */
-.timeline-body {
-  padding: 12px 2px 4px 2px;
-  border-top: 1px solid #eef2f7;
-  margin-top: 10px;
-  line-height: 1.45;
-}
-
-.timeline-body p { margin: 0 0 10px 0; }
-.timeline-body p:last-child { margin-bottom: 0; }
-
-.timeline-body ul {
-  margin: 0 0 10px 18px;
-  padding: 0;
-}
-.timeline-body li { margin: 6px 0; }
-
-/* ================= LEARNING LIBRARY "FOLDERS" ================= */
+/* ================= LEARNING LIBRARY GRID ================= */
 .library-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .folder {
   background: #ffffff;
   border-radius: 14px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  padding: 18px 18px 16px 18px;
+  padding: 22px;
   border: 1px solid #eef2f7;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  position: relative;
 }
 
 .folder:hover {
@@ -238,25 +90,14 @@ a.inline-link:hover { text-decoration: underline; }
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-.folder::before {
-  content: "";
-  position: absolute;
-  top: 14px;
-  left: 18px;
-  width: 64px;
-  height: 14px;
-  background: #e9edf7;
-  border-radius: 10px 10px 4px 4px;
-}
-
 .folder-title {
-  margin: 18px 0 6px 0;
-  font-size: 16px;
+  margin: 0 0 6px 0;
+  font-size: 17px;
   font-weight: 800;
 }
 
 .folder-desc {
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   color: #334155;
   line-height: 1.45;
 }
@@ -264,13 +105,54 @@ a.inline-link:hover { text-decoration: underline; }
 .folder-meta {
   font-size: 12px;
   color: #64748b;
+  margin-bottom: 14px;
 }
 
-.anchor-offset {
-  scroll-margin-top: 90px; /* so anchor doesn't hide behind sticky header */
+/* ================= FILE ROWS ================= */
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* Small screens */
+.file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e5eaf2;
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.file-row:hover {
+  background: #eef3ff;
+  transform: translateY(-1px);
+}
+
+.file-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-icon {
+  font-size: 16px;
+}
+
+.file-name {
+  font-weight: 600;
+  color: var(--main-blue);
+}
+
+.file-arrow {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 760px) {
   .library-grid { grid-template-columns: 1fr; }
 }
